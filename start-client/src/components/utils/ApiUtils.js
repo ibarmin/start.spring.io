@@ -203,7 +203,7 @@ export const getLists = json => {
   })
   return {
     project: get(json, 'type.values', [])
-      .filter(type => type.action === '/starter.zip')
+      .filter(type => type.type == 'project')
       .map(type => ({
         key: `${type.id}`,
         text: `${type.name}`,

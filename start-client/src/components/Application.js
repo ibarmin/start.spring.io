@@ -47,6 +47,7 @@ export default function Application() {
   const buttonSubmit = useRef(null)
 
   const windowsUtils = useWindowsUtils()
+  const projectUrl = `${windowsUtils.origin}/build/project`
   useHash()
 
   useEffect(() => {
@@ -65,9 +66,8 @@ export default function Application() {
       return
     }
     setGenerating(true)
-    const url = `${windowsUtils.origin}/starter.zip`
     const project = await getProject(
-      url,
+      projectUrl,
       values,
       get(dependencies, 'list')
     ).catch(() => {
@@ -80,10 +80,9 @@ export default function Application() {
   }
 
   const onExplore = async () => {
-    const url = `${windowsUtils.origin}/starter.zip`
     dispatch({ type: 'UPDATE', payload: { explore: true, list: false } })
     const project = await getProject(
-      url,
+      projectUrl,
       values,
       get(dependencies, 'list')
     ).catch(() => {

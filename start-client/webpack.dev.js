@@ -21,7 +21,7 @@ const config = {
           res.json(mock)
         }, 800)
       })
-      app.get('/starter.zip', function(req, res) {
+      app.get('/build/project', function(req, res) {
         fs.readFile(path.resolve('./dev/starter.zip'), (err, data) => {
           if (err) return sendError(err, res)
           setTimeout(() => {

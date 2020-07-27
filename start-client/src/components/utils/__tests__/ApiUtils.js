@@ -56,7 +56,7 @@ describe('getListValues', () => {
     const listsValues = getLists(json)
     const listProjects = get(listsValues, 'project')
     const mockProjects = get(MockClient, 'type.values').filter(
-      project => project.action === '/starter.zip'
+      project => project.type === "project"
     )
     expect(listProjects.length).toBe(mockProjects.length)
     for (let i = 0; i < mockProjects.length; i += 1) {
